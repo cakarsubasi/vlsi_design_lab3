@@ -1,0 +1,25 @@
+# reject all
+*
+# scripts directory
+!/scripts/
+!*.py
+# vhdl source files
+!*.vhd
+!*.vhdl
+# simulator input file
+!testvecs.in
+# make file
+!Makefile
+# gitignore file 
+!.gitignore
+# List files
+!*.list
+# tcsh scripts
+!*.tcsh
+!*.cmd
+# tcl scripts
+!*.tcl
+# Design Vision config file
+!.synopsys_dc.setup
+# Other text files
+!*.txt
