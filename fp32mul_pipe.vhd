@@ -96,7 +96,7 @@ begin
 		   S(7 downto 0)=>EXP_pipe(7 downto 0) ); 
    EXP_INCR : expincrement
 	Port Map ( EXP(7 downto 0)=>EXP_pipe(7 downto 0), 
-		   EZ(7 downto 0)=>EXP1(7 downto 0) );
+		   EZ(7 downto 0)=>EXP1_pipe(7 downto 0) );
 
    -- must include implicit 1
    MX(23)<='1'; MX(22 downto 0) <= BX(22 downto 0); 
