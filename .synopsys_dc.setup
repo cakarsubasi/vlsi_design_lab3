@@ -1,0 +1,29 @@
+#
+# This file is intended to be used for STM 90 nm (CMOS090) process
+# and Design Vision (TCL)
+# updated by AN 21/09/2009
+
+set cache_read ""
+set cache_write ""
+
+# Search Path
+set search_path "$search_path ./"
+
+
+set SLIB1 /cell_libs/cmos090_50a/CORE90GPSVT_SNPS-AVT_2.1/SNPS/common/SYMBOL/CORE90GPSVT.sdb
+set SLIB2 /cell_libs/cmos090_50a/CORE90GPHVT_SNPS-AVT_2.1.a/SNPS/common/SYMBOL/CORE90GPHVT.sdb
+set SLIB3 /cell_libs/cmos090_50a/CORE90GPLVT_SNPS-AVT_2.1/SNPS/common/SYMBOL/CORE90GPLVT.sdb
+
+set LIB1 /cell_libs/cmos090_50a/CORE90GPSVT_SNPS-AVT_2.1/SIGNOFF/bc_1.10V_m40C_wc_0.90V_105C/PT_LIB/CORE90GPSVT_NomLeak.db 
+set LIB2 /cell_libs/cmos090_50a/CORE90GPHVT_SNPS-AVT_2.1.a/SIGNOFF/bc_1.10V_m40C_wc_0.90V_105C/PT_LIB/CORE90GPHVT_NomLeak.db
+set LIB3 /cell_libs/cmos090_50a/CORE90GPLVT_SNPS-AVT_2.1/SIGNOFF/bc_1.10V_m40C_wc_0.90V_105C/PT_LIB/CORE90GPLVT_NomLeak.db
+
+
+# Setup libraries
+set link_library  "* $LIB1 $LIB2"
+set target_library "$LIB1 $LIB2"
+set symbol_library "$SLIB1 $SLIB2"
+
+# Define Work Library Location
+define_design_lib WORK -path "./WORK"
+

@@ -74,22 +74,26 @@ if (c > 1) then
     write(line_out, string'("Test "));
     write(line_out,c-1);
     if (Z = SP) then
-	write(line_out, string'(" passed:"));
+	    write(line_out, string'(" passed:"));
     else
-	write(line_out, string'(" FAILED:"));
+	    write(line_out, string'(" FAILED:"));
     end if;
+
     hwrite(line_out,AP,RIGHT,9);
     write(line_out, string'(" *"));
     hwrite(line_out,BP,RIGHT,9);
     write(line_out, string'(" -> "));
     hwrite(line_out,SP,RIGHT,9);
+    
     if (Z = SP) then
-	write(line_out, string'(" =="));
+	    write(line_out, string'(" =="));
     else
-	write(line_out, string'(" <>"));
+	    write(line_out, string'(" <>"));
     end if;
+
     hwrite(line_out,Z,RIGHT,9);
     writeline(OUTPUT,line_out);     -- write the message
+
     assert (Z = SP) report "Z does not match in pattern " severity error;
         SP := S;
         AP := A;

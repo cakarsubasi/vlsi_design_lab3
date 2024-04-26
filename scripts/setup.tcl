@@ -1,7 +1,7 @@
 ###################################
 # DEFINE WORKING MILKYWAY LIBRARY #
 ###################################
-set MW_WORK_DIR "MW_SHIFTREG"
+set MW_WORK_DIR "MW_FPMUL"
 
 
 

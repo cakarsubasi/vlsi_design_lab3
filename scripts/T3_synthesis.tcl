@@ -8,9 +8,7 @@ source ./rtl.tcl
 ################
 ##  READ RTL  ##
 ################
-set top_module shiftreg
-
-set target_dir "./"
+set top_module fp32mul_pipe
 
 analyze -format vhdl -define RUNDC -lib work ${rtl_files}
 
@@ -19,19 +17,10 @@ elaborate ${top_module} -lib WORK
 ###############################
 ##  READ TIMING CONSTRAINTS  ##
 ###############################
+set PERIOD 1.0
+create_clock -name "CLK" -period 1.0 -waveform { 0.000 0.500  }  { CLOCK  }
 
-#create_clock -name "CLOCK" -period PERIOD -waveform { 0.000 1.000  }  { CLOCK  }
 current_design ${top_module}
-
-set waveforms 0.0
-set half_period [expr ${PERIOD} / 2]
-append waveforms " " half_period
-create_clock -name "CLK" -period ${PERIOD} { CLOCK }
-
-# Usage not recommended LMAO
-set_max_dynamic_power 0
-set_max_leakage_power 0
-
 uniquify
 link
 
@@ -44,21 +33,20 @@ compile
 ################
 ##  DATA OUT  ##
 ################
-#write -hierarchy -format ddc     -output ${target_dir}${top_module}-${shiftreg_type}-${PERIOD}-syn.ddc
-#write -hierarchy -format verilog -output ${target_dir}${top_module}-${shiftreg_type}-${PERIOD}-syn.v
-#write -hierarchy -format vhdl    -output ${target_dir}${top_module}-${shiftreg_type}-${PERIOD}-syn.vhdl
-write -hierarchy -format ddc     -output ${target_dir}${shiftreg_type}-syn.ddc
-write -hierarchy -format verilog -output ${target_dir}${shiftreg_type}-syn.v
-write -hierarchy -format vhdl    -output ${target_dir}${shiftreg_type}-syn.vhdl
-write_sdf ${target_dir}${top_module}-syn.sdf
+
+write -hierarchy -format ddc -output ${top_module}-syn.ddc
+write -hierarchy -format verilog -output ${top_module}-syn.v
+write_sdf ${top_module}-syn.sdf
 
 
 ## REPORT
 #########
 
-report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 3 -sort_by group > ./report/${top_module}-syn_cp-${shiftreg_type}-${PERIOD}.txt
-report_area > ./report/${top_module}-syn_area-${shiftreg_type}-${PERIOD}.rpt
-report_power -hier -hier_level 1 -verb > ./report/${top_module}-syn_power-${shiftreg_type}-${PERIOD}.rpt
+report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 3 -sort_by group > ./Report/${top_module}-syn_cp.txt
+
+report_area > ./Report/${top_module}-syn_area.rpt
+
+report_power -hier -hier_level 1 -verb > ./Report/${top_module}-syn_power.rpt
 
 sh date
 
