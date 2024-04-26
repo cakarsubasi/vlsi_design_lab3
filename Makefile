@@ -38,6 +38,9 @@ synth-sim: compile synth-build
 synth-phys:
 	dc_shell -topo -f ./scripts/T5_compile.tcl
 
+floorplan:
+	icc_shell -no_gui -shared_license -f ./scripts/plan_and_place.tcl
+
 clean:
 	rm -rf AN.DB 64 simv* csrc work.lib++ alib-52 ARCH CONF ENTI WORK command.log default.svf filenames.log
 

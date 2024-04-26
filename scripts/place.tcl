@@ -10,8 +10,10 @@ sh date
 ##  open pna cell  ##
 #####################
 
-  copy_mw_cel -from floorplan -to place
-  open_mw_cel place
+set top_module fp32mul_pipe
+
+  copy_mw_cel -from ${top_module}-floorplan -to ${top_module}-place
+  open_mw_cel ${top_module}-place
   link
   link_physical
 
@@ -40,8 +42,6 @@ sh date
 ## DUMP DATA ##
 ###############
 
-  set top_module shiftreg
-
   change_names -rule verilog -hier
   write_sdc -nosplit ./db/place.sdc
   write_script -nosplit -o ./db/place.script
@@ -54,25 +54,25 @@ sh date
 ## REPORTING ##
 ###############
 
-  report_area -ph > ./report/${top_module}-place_area.txt
+  report_area -ph > ./Report/${top_module}-place_area.txt
 
   report_timing -att \
                 -net \
                 -trans \
                 -cap \
                 -input \
-                -nosplit > ./report/${top_module}-place_timing.txt
+                -nosplit > ./Report/${top_module}-place_timing.txt
 
-  report_net -physical > ./report/route_nets.rpt	
+  report_net -physical > ./Report/route_nets.rpt	
 
-  report_cell -physical -nosplit > ./report/route_phy.rpt
+  report_cell -physical -nosplit > ./Report/route_phy.rpt
 		
-  report_hier -nosplit -nolea > ./report/route_hier.rpt
-  report_power -hier -hier_level 1 -verb > ./report/${top_module}-place_power.txt
-  report_qor > ./report/place_qor.rpt
+  report_hier -nosplit -nolea > ./Report/route_hier.rpt
+  report_power -hier -hier_level 1 -verb > ./Report/${top_module}-place_power.txt
+  report_qor > ./Report/place_qor.rpt
   
   report_timing -path full -delay max -nworst 1 -max_paths 1 \
-     -significant_digits 3 -sort_by group > ./report/${top_module}-place_cp.txt
+     -significant_digits 3 -sort_by group > ./Report/${top_module}-place_cp.txt
 
 sh date
 

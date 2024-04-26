@@ -95,32 +95,6 @@ RBIT <= "0000000000000000000000000100000000000000000000000";
       Z(95 downto 48) => PC
    );
 
---   REGPIPE1 : reg32b
---   Port Map (
---      A(31 downto 0)=> PS_stage(31 downto 0),
---      CLOCK=>CLOCK,
---      RESET=>RESET, 
---      Z(31 downto 0)=> PS(31 downto 0)
---   );
---
---   REGPIPE2 : reg32b
---   Port Map (
---      A(15 downto 0)=> PS_stage(47 downto 32),
---      A(31 downto 16)=> PC_stage(47 downto 32),
---      CLOCK=>CLOCK,
---      RESET=>RESET,
---      Z(15 downto 0)=> PS(47 downto 32),
---      Z(31 downto 16)=> PC(47 downto 32)
---   );
---
---   REGPIPE3 : reg32b
---   Port Map (
---      A(31 downto 0)=> PC_stage(31 downto 0),
---      CLOCK=>CLOCK,
---      RESET=>RESET, 
---      Z(31 downto 0)=> PC(31 downto 0)
---   );
-
 
    CSA1 : gl_csa32 Generic Map(n=>47)
         Port Map ( A=> PS, B=> PC, C=> RBIT(48 downto 1), Cin=> GND, Z=>P1s , Y=>P1c);

@@ -4,14 +4,20 @@ sh date
 ##  Setup logic and milkyway libraries  ##
 ##########################################
   
-  #source ./scripts/setup.tcl
+#  source ./scripts/setup.tcl
+
+# set design_netlist ./fp32mul_pipe-syn.v
+set top_module fp32mul_pipe
+# current_design ${top_module}
 
 #####################
 ##  open dft cell  ##
 #####################
 
-  copy_mw_cel -from compile -to floorplan
-  open_mw_cel floorplan
+import_designs -format ddc -top ${top_module} -cel ${top_module} ./${top_module}-syn.ddc
+
+  copy_mw_cel -from ${top_module} -to ${top_module}-floorplan
+  open_mw_cel ${top_module}-floorplan
   link
   link_physical
 
@@ -67,8 +73,8 @@ create_preroute_vias  -nets  {VDD} \
 
 
 set_fp_rail_constraints  -skip_ring -extend_strap core_ring
-set_fp_rail_constraints -add_layer  -layer M6 -direction horizontal -max_strap 32 -min_strap 2 -min_width 0.2 -spacing minimum
-set_fp_rail_constraints -add_layer  -layer M5 -direction vertical -max_strap 32 -min_strap 2 -min_width 0.2 -spacing minimum
+set_fp_rail_constraints -add_layer  -layer M6 -direction horizontal -max_strap 256 -min_strap 24 -min_width 0.2 -spacing minimum
+set_fp_rail_constraints -add_layer  -layer M5 -direction vertical -max_strap 256 -min_strap 24 -min_width 0.2 -spacing minimum
 ###############
 ##  PNS VSS  ##
 ###############
