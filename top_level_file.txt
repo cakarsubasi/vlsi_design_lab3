@@ -1,1 +1,1 @@
-tb_s_fpmul.vhd
+tb_s_fpmul1.vhd
