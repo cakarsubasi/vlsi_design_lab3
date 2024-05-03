@@ -1,0 +1,101 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+        -verbose
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Fri Apr 26 15:01:54 2024
+****************************************
+
+
+Library(s) Used:
+
+    CORE90GPSVT (File: /cell_libs/cmos090_50a/CORE90GPSVT_SNPS-AVT_2.1/SIGNOFF/bc_1.10V_m40C_wc_0.90V_105C/PT_LIB/CORE90GPSVT_NomLeak.db)
+    CORE90GPHVT (File: /cell_libs/cmos090_50a/CORE90GPHVT_SNPS-AVT_2.1.a/SIGNOFF/bc_1.10V_m40C_wc_0.90V_105C/PT_LIB/CORE90GPHVT_NomLeak.db)
+
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+fp32mul_pipe           area_24Kto48K     CORE90GPSVT
+reg32b_0               area_0to1K        CORE90GPSVT
+out_sign               area_0to1K        CORE90GPSVT
+gl_mux21_n7            area_0to1K        CORE90GPSVT
+significand_compute    area_24Kto48K     CORE90GPSVT
+regnb_N17              area_0to1K        CORE90GPSVT
+expincrement           area_0to1K        CORE90GPSVT
+expadd                 area_0to1K        CORE90GPSVT
+reg32b_1               area_0to1K        CORE90GPSVT
+reg32b_2               area_0to1K        CORE90GPSVT
+gl_mux21_n23           area_0to1K        CORE90GPSVT
+gl_cpa_n47_0           area_3Kto4K       CORE90GPSVT
+gl_cpa_n47_1           area_2Kto3K       CORE90GPSVT
+gl_csa32_n47_1         area_1Kto2K       CORE90GPSVT
+gl_csa32_n47_2         area_1Kto2K       CORE90GPSVT
+regnb_N96              area_1Kto2K       CORE90GPSVT
+array24x24             area_24Kto48K     CORE90GPSVT
+TREE                   area_18Kto24K     CORE90GPSVT
+PARTPROD_n25_0         area_0to1K        CORE90GPSVT
+PARTPROD_n25_1         area_0to1K        CORE90GPSVT
+PARTPROD_n25_2         area_0to1K        CORE90GPSVT
+PARTPROD_n25_3         area_0to1K        CORE90GPSVT
+PARTPROD_n25_4         area_0to1K        CORE90GPSVT
+PARTPROD_n25_5         area_0to1K        CORE90GPSVT
+PARTPROD_n25_6         area_0to1K        CORE90GPSVT
+PARTPROD_n25_7         area_0to1K        CORE90GPSVT
+PARTPROD_n25_8         area_0to1K        CORE90GPSVT
+PARTPROD_n25_9         area_0to1K        CORE90GPSVT
+PARTPROD_n25_10        area_0to1K        CORE90GPSVT
+PARTPROD_n25_11        area_0to1K        CORE90GPSVT
+PARTPROD_n25_12        area_0to1K        CORE90GPSVT
+gl_csa42_n47_0         area_4Kto5K       CORE90GPSVT
+gl_csa32_n47_0         area_2Kto3K       CORE90GPSVT
+gl_csa42_n47_1         area_4Kto5K       CORE90GPSVT
+gl_csa42_n47_2         area_3Kto4K       CORE90GPSVT
+gl_csa42_n47_3         area_3Kto4K       CORE90GPSVT
+gl_csa42_n47_4         area_4Kto5K       CORE90GPSVT
+
+
+Global Operating Voltage = 1    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+fp32mul_pipe                           4.917435 9.802417 140721472.000000
+                                                                  14.860573
+                                                                           100.0
+  REGX (reg32b_2)                      0.036341 0.400860 545113.687500
+                                                                  0.437746   2.9
+  REGY (reg32b_1)                      0.037612 0.409727 819948.187500
+                                                                  0.448158   3.0
+  EXP_ADD (expadd)                     0.025513 0.029839 552391.875000
+                                                                  0.055905   0.4
+  EXP_INCR (expincrement)              0.003105 0.011405 175421.343750
+                                                                  0.014685   0.1
+  REGPIPE (regnb_N17)                  0.002884 0.207225 40298.980469
+                                                                  0.210149   1.4
+  SIGNIFICAND (significand_compute)    3.944480 8.206935 137564032.000000
+                                                                  12.288979
+                                                                            82.7
+  EXP_MUX (gl_mux21_n7)                0.001453 0.004437 137301.312500
+                                                                  0.006028   0.0
+  SIGN_COMP (out_sign)                 0.000316 0.000963 1639.711426
+                                                                  0.001280   0.0
+  REGZ (reg32b_0)                      0.025067 0.441976 680213.937500
+                                                                  0.467723   3.1
+1

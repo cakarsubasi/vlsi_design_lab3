@@ -1,0 +1,14 @@
+ 
+****************************************
+Report : hierarchy
+        -noleaf
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Wed May  1 09:54:13 2024
+****************************************
+
+Attributes:
+    r - licensed design
+
+fp32mul_pipe       r
+1

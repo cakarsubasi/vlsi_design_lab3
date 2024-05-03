@@ -1,0 +1,99 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Wed May  1 09:45:13 2024
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: Inactive.
+	Parasitic source    : LPE
+	Parasitic mode      : RealRC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 25/25/25
+
+Information: Percent of Arnoldi-based delays = 25.67%
+
+  Startpoint: REGY_Z_reg_3_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: SIGNIFICAND_REGPIPE_Z_reg_32_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  ----------------------------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                   0.000000   0.000000
+  clock network delay (propagated)                                        0.069749   0.069749
+  REGY_Z_reg_3_/CP (FD2QSVTX2)                                  0.100659  0.000000   0.069749 r
+  REGY_Z_reg_3_/Q (FD2QSVTX2)                                   0.065306  0.163634   0.233383 f
+  SIGNIFICAND_MULT_ARRAY_N1 (net)               6     0.030363            0.000000   0.233383 f
+  U1999/A (ND2AHVTX2)                                           0.065306  0.000628 & 0.234011 f
+  U1999/Z (ND2AHVTX2)                                           0.052772  0.117770   0.351780 f
+  n2868 (net)                                   4     0.013408            0.000000   0.351780 f
+  U1895/B (ND2SVTX2)                                            0.052772  0.000178 & 0.351958 f
+  U1895/Z (ND2SVTX2)                                            0.061352  0.044717   0.396676 r
+  n2802 (net)                                   3     0.016027            0.000000   0.396676 r
+  U2746/B (EOSVTX2)                                             0.061352  0.000303 & 0.396978 r
+  U2746/Z (EOSVTX2)                                             0.060241  0.105156   0.502134 r
+  n3112 (net)                                   6     0.026933            0.000000   0.502134 r
+  U3725/B (EOHVTX2)                                             0.060241  0.001381 & 0.503515 r
+  U3725/Z (EOHVTX2)                                             0.036149  0.111432   0.614947 r
+  n3532 (net)                                   2     0.008079            0.000000   0.614947 r
+  U1897/B (EOSVTX1)                                             0.036149  0.000121 & 0.615068 r
+  U1897/Z (EOSVTX1)                                             0.094168  0.099157   0.714225 r
+  n3168 (net)                                   2     0.014014            0.000000   0.714225 r
+  U3724/B (EOHVTX1)                                             0.094168  0.000212 & 0.714436 r
+  U3724/Z (EOHVTX1)                                             0.085777  0.139910   0.854346 r
+  n3117 (net)                                   1     0.005629            0.000000   0.854346 r
+  U2077/A (EOSVTX2)                                             0.085777  0.000063 & 0.854409 r
+  U2077/Z (EOSVTX2)                                             0.028403  0.098253   0.952663 r
+  n3118 (net)                                   1     0.008162            0.000000   0.952663 r
+  U1896/B (EOSVTX4)                                             0.028403  0.000134 & 0.952796 r
+  U1896/Z (EOSVTX4)                                             0.025070  0.054164   1.006960 f
+  n3186 (net)                                   2     0.011076            0.000000   1.006960 f
+  U2855/S (MUX21NSVTX2)                                         0.025070  0.000200 & 1.007160 f
+  U2855/Z (MUX21NSVTX2)                                         0.078113  0.062891   1.070051 r
+  n3195 (net)                                   2     0.012634            0.000000   1.070051 r
+  U2259/C (EO3SVTX4)                                            0.078113  0.000205 & 1.070256 r
+  U2259/Z (EO3SVTX4)                                            0.035139  0.080622   1.150878 f
+  n3189 (net)                                   1     0.007756            0.000000   1.150878 f
+  U2258/B (ENSVTX4)                                             0.035139  0.000126 & 1.151004 f
+  U2258/Z (ENSVTX4)                                             0.025087  0.056564   1.207569 f
+  n3234 (net)                                   2     0.011789            0.000000   1.207569 f
+  U2535/B (ENSVTX2)                                             0.025087  0.000157 & 1.207726 f
+  U2535/Z (ENSVTX2)                                             0.014202  0.054144   1.261870 r
+  SIGNIFICAND_PS_stage[32] (net)                1     0.002597            0.000000   1.261870 r
+  SIGNIFICAND_REGPIPE_Z_reg_32_/D (FD2QSVTX2)                   0.014202  0.000042 & 1.261912 r
+  data arrival time                                                                  1.261912
+
+  clock CLK (rise edge)                                                   1.250000   1.250000
+  clock network delay (propagated)                                        0.073565   1.323565
+  SIGNIFICAND_REGPIPE_Z_reg_32_/CP (FD2QSVTX2)                            0.000000   1.323565 r
+  library setup time                                                      -0.053919  1.269645
+  data required time                                                                 1.269645
+  ----------------------------------------------------------------------------------------------------------------
+  data required time                                                                 1.269645
+  data arrival time                                                                  -1.261912
+  ----------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                        0.007733
+
+
+1

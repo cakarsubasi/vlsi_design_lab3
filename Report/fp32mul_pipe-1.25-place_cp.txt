@@ -1,0 +1,64 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Wed May  1 09:46:18 2024
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: Inactive.
+	Parasitic source    : LPE
+	Parasitic mode      : RealRC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 25/25/25
+
+Information: Percent of Arnoldi-based delays = 25.67%
+
+  Startpoint: REGY_Z_reg_3_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: SIGNIFICAND_REGPIPE_Z_reg_32_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                  0.000      0.000
+  clock network delay (propagated)                       0.070      0.070
+  REGY_Z_reg_3_/CP (FD2QSVTX2)                           0.000      0.070 r
+  REGY_Z_reg_3_/Q (FD2QSVTX2)                            0.164      0.233 f
+  U1999/Z (ND2AHVTX2)                                    0.118 &    0.352 f
+  U1895/Z (ND2SVTX2)                                     0.045 &    0.397 r
+  U2746/Z (EOSVTX2)                                      0.105 &    0.502 r
+  U3725/Z (EOHVTX2)                                      0.113 &    0.615 r
+  U1897/Z (EOSVTX1)                                      0.099 &    0.714 r
+  U3724/Z (EOHVTX1)                                      0.140 &    0.854 r
+  U2077/Z (EOSVTX2)                                      0.098 &    0.953 r
+  U1896/Z (EOSVTX4)                                      0.054 &    1.007 f
+  U2855/Z (MUX21NSVTX2)                                  0.063 &    1.070 r
+  U2259/Z (EO3SVTX4)                                     0.081 &    1.151 f
+  U2258/Z (ENSVTX4)                                      0.057 &    1.208 f
+  U2535/Z (ENSVTX2)                                      0.054 &    1.262 r
+  SIGNIFICAND_REGPIPE_Z_reg_32_/D (FD2QSVTX2)            0.000 &    1.262 r
+  data arrival time                                                 1.262
+
+  clock CLK (rise edge)                                  1.250      1.250
+  clock network delay (propagated)                       0.074      1.324
+  SIGNIFICAND_REGPIPE_Z_reg_32_/CP (FD2QSVTX2)           0.000      1.324 r
+  library setup time                                    -0.054      1.270
+  data required time                                                1.270
+  --------------------------------------------------------------------------
+  data required time                                                1.270
+  data arrival time                                                -1.262
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.008
+
+
+1

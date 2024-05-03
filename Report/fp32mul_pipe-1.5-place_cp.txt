@@ -1,0 +1,66 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Wed May  1 09:50:20 2024
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: Inactive.
+	Parasitic source    : LPE
+	Parasitic mode      : RealRC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 25/25/25
+
+Information: Percent of Arnoldi-based delays = 25.07%
+
+  Startpoint: REGY_Z_reg_3_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: SIGNIFICAND_REGPIPE_Z_reg_15_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                  0.000      0.000
+  clock network delay (propagated)                       0.074      0.074
+  REGY_Z_reg_3_/CP (FD2QSVTX4)                           0.000      0.074 r
+  REGY_Z_reg_3_/Q (FD2QSVTX4)                            0.219 @    0.293 f
+  U2343/Z (ND2SVTX2)                                     0.074 @    0.367 r
+  U2415/Z (ND2SVTX4)                                     0.079 @    0.445 f
+  U3509/Z (AO4HVTX1)                                     0.119 @    0.564 r
+  U3508/Z (EOHVTX1)                                      0.150 &    0.714 r
+  U2002/Z (IVHVTX0H)                                     0.057 &    0.771 f
+  U2001/Z (EN3SVTX2)                                     0.163 &    0.934 f
+  U2000/Z (IVHVTX1)                                      0.047 &    0.981 r
+  U1999/Z (EOHVTX4)                                      0.091 &    1.073 f
+  U3501/Z (ENSVTX1)                                      0.068 &    1.141 r
+  U1998/Z (EO3SVTX4)                                     0.074 &    1.215 f
+  U1903/Z (EOSVTX2)                                      0.074 &    1.290 r
+  U1972/Z (AO7HVTX1)                                     0.062 &    1.352 f
+  U2179/Z (AO7HVTX2)                                     0.073 &    1.424 r
+  U3327/Z (ENSVTX1)                                      0.080 &    1.504 f
+  SIGNIFICAND_REGPIPE_Z_reg_15_/D (FD2QSVTX1)            0.000 &    1.504 f
+  data arrival time                                                 1.504
+
+  clock CLK (rise edge)                                  1.500      1.500
+  clock network delay (propagated)                       0.076      1.576
+  SIGNIFICAND_REGPIPE_Z_reg_15_/CP (FD2QSVTX1)           0.000      1.576 r
+  library setup time                                    -0.050      1.526
+  data required time                                                1.526
+  --------------------------------------------------------------------------
+  data required time                                                1.526
+  data arrival time                                                -1.504
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.022
+
+
+1

@@ -1,0 +1,56 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : fp32mul_pipe
+Version: G-2012.06
+Date   : Tue Apr 30 11:43:45 2024
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: Inactive.
+
+  Startpoint: REGY_Z_reg_15_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: SIGNIFICAND_REGPIPE_Z_reg_39_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            0.000      0.000
+  REGY_Z_reg_15_/CP (FD2QSVTX4)                          0.000      0.000 r
+  REGY_Z_reg_15_/Q (FD2QSVTX4)                           0.224      0.224 f
+  U2068/Z (IVSVTX6)                                      0.055 *    0.279 r
+  U2186/Z (AO6ASVTX8)                                    0.077 *    0.357 r
+  U3678/Z (AO7HVTX2)                                     0.051 *    0.407 f
+  U3677/Z (EOHVTX2)                                      0.105 *    0.512 f
+  U3063/Z (AO5ASVTX2)                                    0.040 *    0.552 r
+  U3651/Z (EN3HVTX2)                                     0.195 *    0.748 f
+  U3650/Z (MUX21NHVTX2)                                  0.103 *    0.850 r
+  U1888/Z (EN3SVTX4)                                     0.144 *    0.994 f
+  U2129/Z (ENHVTX4)                                      0.084 *    1.078 f
+  U3598/Z (ENHVTX1)                                      0.085 *    1.163 f
+  SIGNIFICAND_REGPIPE_Z_reg_39_/D (FD2QSVTX1)            0.000 *    1.163 f
+  data arrival time                                                 1.163
+
+  clock CLK (rise edge)                                  1.250      1.250
+  clock network delay (ideal)                            0.000      1.250
+  SIGNIFICAND_REGPIPE_Z_reg_39_/CP (FD2QSVTX1)           0.000      1.250 r
+  library setup time                                    -0.087      1.163
+  data required time                                                1.163
+  --------------------------------------------------------------------------
+  data required time                                                1.163
+  data arrival time                                                -1.163
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.000
+
+
+1

@@ -1,0 +1,95 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : fp32mul_pipe
+Version: G-2012.06
+Date   : Tue Apr 30 11:35:33 2024
+****************************************
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: enclosed
+
+  Startpoint: REGY/Z_reg[9]
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: SIGNIFICAND/REGPIPE/Z_reg[46]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fp32mul_pipe       area_24Kto48K         CORE90GPSVT
+  array24x24         area_24Kto48K         CORE90GPSVT
+  PARTPROD_n25_8     area_0to1K            CORE90GPSVT
+  TREE               area_18Kto24K         CORE90GPSVT
+  gl_csa42_n47_3     area_3Kto4K           CORE90GPSVT
+  gl_csa42_n47_1     area_4Kto5K           CORE90GPSVT
+  gl_csa42_n47_0     area_4Kto5K           CORE90GPSVT
+  significand_compute
+                     area_24Kto48K         CORE90GPSVT
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            0.000      0.000
+  REGY/Z_reg[9]/CP (FD2QSVTX1)                           0.000      0.000 r
+  REGY/Z_reg[9]/Q (FD2QSVTX1)                            0.088      0.088 f
+  REGY/Z[9] (reg32b_1)                                   0.000      0.088 f
+  SIGNIFICAND/MY[9] (significand_compute)                0.000      0.088 f
+  SIGNIFICAND/MULT_ARRAY/Y[9] (array24x24)               0.000      0.088 f
+  SIGNIFICAND/MULT_ARRAY/U19/Z (BFSVTX6)                 0.049      0.137 f
+  SIGNIFICAND/MULT_ARRAY/PP_4/Y[2] (PARTPROD_n25_8)      0.000      0.137 f
+  SIGNIFICAND/MULT_ARRAY/PP_4/U8/Z (IVSVTX6)             0.018      0.155 r
+  SIGNIFICAND/MULT_ARRAY/PP_4/U40/Z (IVSVTX4)            0.021      0.176 f
+  SIGNIFICAND/MULT_ARRAY/PP_4/P[25] (PARTPROD_n25_8)     0.000      0.176 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/P4[25] (TREE)           0.000      0.176 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/U7/Z (BFSVTX6)          0.062      0.238 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_47/A[45] (gl_csa42_n47_3)
+                                                         0.000      0.238 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_47/U111/Z (BFSVTX2)
+                                                         0.065      0.303 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_47/U166/Z (EO3SVTX2)
+                                                         0.140      0.443 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_47/U247/Z (AO4ABSVTX2)
+                                                         0.078      0.521 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_47/Y[46] (gl_csa42_n47_3)
+                                                         0.000      0.521 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/B_03/D[46] (gl_csa42_n47_1)
+                                                         0.000      0.521 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/B_03/U21/Z (ENSVTX2)    0.091      0.612 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/B_03/U187/Z (EO3SVTX6)
+                                                         0.063      0.674 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/B_03/U59/Z (EOSVTX8)    0.069      0.743 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/B_03/Z[46] (gl_csa42_n47_1)
+                                                         0.000      0.743 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/A[46] (gl_csa42_n47_0)
+                                                         0.000      0.743 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/U187/Z (EO3SVTX8)
+                                                         0.112      0.855 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/U273/Z (EOSVTX8)
+                                                         0.060      0.915 r
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/Z[46] (gl_csa42_n47_0)
+                                                         0.000      0.915 r
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/S[46] (TREE)            0.000      0.915 r
+  SIGNIFICAND/MULT_ARRAY/S[46] (array24x24)              0.000      0.915 r
+  SIGNIFICAND/REGPIPE/A[46] (regnb_N96)                  0.000      0.915 r
+  SIGNIFICAND/REGPIPE/Z_reg[46]/D (FD2QSVTX2)            0.000      0.915 r
+  data arrival time                                                 0.915
+
+  clock CLK (rise edge)                                  1.000      1.000
+  clock network delay (ideal)                            0.000      1.000
+  SIGNIFICAND/REGPIPE/Z_reg[46]/CP (FD2QSVTX2)           0.000      1.000 r
+  library setup time                                    -0.085      0.915
+  data required time                                                0.915
+  --------------------------------------------------------------------------
+  data required time                                                0.915
+  data arrival time                                                -0.915
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.000
+
+
+1

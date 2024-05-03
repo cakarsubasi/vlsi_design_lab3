@@ -1,0 +1,71 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : fp32mul_pipe
+Version: G-2012.06
+Date   : Tue Apr 30 11:43:07 2024
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: Inactive.
+
+  Startpoint: REGY_Z_reg_9_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: SIGNIFICAND_REGPIPE_Z_reg_13_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            0.000      0.000
+  REGY_Z_reg_9_/CP (FD4QSVTX4)                           0.000      0.000 r
+  REGY_Z_reg_9_/Q (FD4QSVTX4)                            0.185      0.185 f
+  U2504/Z (IVSVTX4)                                      0.042 *    0.227 r
+  U2087/Z (AO7ABSVTX8)                                   0.047 *    0.275 r
+  U4628/Z (AN2SVTX8)                                     0.038 *    0.312 r
+  U4627/Z (IVSVTX12)                                     0.017 *    0.329 f
+  U2311/Z (AO4SVTX4)                                     0.027 *    0.356 r
+  U2671/Z (EOSVTX4)                                      0.064 *    0.420 f
+  U2670/Z (NR2SVTX2)                                     0.036 *    0.456 r
+  U2719/Z (NR2SVTX2)                                     0.031 *    0.487 f
+  U3530/Z (ND2SVTX2)                                     0.025 *    0.512 r
+  U3529/Z (ND2SVTX4)                                     0.020 *    0.532 f
+  U3526/Z (IVHVTX4)                                      0.022 *    0.554 r
+  U3523/Z (ND2SVTX4)                                     0.017 *    0.571 f
+  U2091/Z (IVSVTX2)                                      0.021 *    0.592 r
+  U2205/Z (NR2SVTX4)                                     0.019 *    0.610 f
+  U2310/Z (IVSVTX2)                                      0.021 *    0.631 r
+  U3502/Z (EOSVTX4)                                      0.055 *    0.686 f
+  U3499/Z (EOSVTX8)                                      0.050 *    0.736 r
+  U1845/Z (ND2ASVTX4)                                    0.016 *    0.751 f
+  U2160/Z (AO7AHVTX6)                                    0.040 *    0.792 r
+  U4754/Z (ND2HVTX4)                                     0.031 *    0.823 f
+  U4753/Z (IVHVTX4)                                      0.017 *    0.840 r
+  U1832/Z (NR2SVTX4)                                     0.022 *    0.863 f
+  U2159/Z (ND2ASVTX4)                                    0.018 *    0.881 r
+  U4752/Z (IVHVTX4)                                      0.015 *    0.896 f
+  U2232/Z (AO6ABSVTX4)                                   0.018 *    0.914 r
+  SIGNIFICAND_REGPIPE_Z_reg_13_/D (FD2QSVTX1)            0.000 *    0.914 r
+  data arrival time                                                 0.914
+
+  clock CLK (rise edge)                                  1.000      1.000
+  clock network delay (ideal)                            0.000      1.000
+  SIGNIFICAND_REGPIPE_Z_reg_13_/CP (FD2QSVTX1)           0.000      1.000 r
+  library setup time                                    -0.085      0.915
+  data required time                                                0.915
+  --------------------------------------------------------------------------
+  data required time                                                0.915
+  data arrival time                                                -0.914
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.000
+
+
+1

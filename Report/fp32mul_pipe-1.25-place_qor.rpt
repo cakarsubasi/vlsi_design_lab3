@@ -1,0 +1,86 @@
+ 
+****************************************
+Report : qor
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Wed May  1 09:46:18 2024
+****************************************
+
+
+  Timing Path Group 'CLK'
+  -----------------------------------
+  Levels of Logic:          12.000000
+  Critical Path Length:      1.192163
+  Critical Path Slack:       0.007733
+  Critical Path Clk Period:  1.250000
+  Total Negative Slack:      0.000000
+  No. of Violating Paths:    0.000000
+  Worst Hold Violation:      0.000000
+  Total Hold Violation:      0.000000
+  No. of Hold Violations:    0.000000
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:               2597
+  Buf/Inv Cell Count:             495
+  Buf Cell Count:                  11
+  Inv Cell Count:                 484
+  CT Buf/Inv Cell Count:            3
+  Combinational Cell Count:      2401
+  Sequential Cell Count:          196
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    18228.940659
+  Noncombinational Area:  3663.788925
+  Buf/Inv Area:           1521.273577
+  Total Buffer Area:        70.246399
+  Total Inverter Area:    1451.027178
+  Macro/Black Box Area:    105.369598
+  Net Area:                  0.000000
+  Net XLength        :   26847.783203
+  Net YLength        :   31200.804688
+  -----------------------------------
+  Cell Area:             21998.099182
+  Design Area:           21998.099182
+  Net Length        :    58048.585938
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          2670
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: eda2.compute.dtu.dk
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                0.036283
+  Logic Optimization:              1.936140
+  Mapping Optimization:            13.364246
+  -----------------------------------------
+  Overall Compile Time:            26.859722
+  Overall Compile Wall Clock Time: 29.698566
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.000000  TNS: 0.000000  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.000000  TNS: 0.000000  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1

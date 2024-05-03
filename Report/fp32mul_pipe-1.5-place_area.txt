@@ -1,0 +1,45 @@
+ 
+****************************************
+Report : area
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Wed May  1 09:49:16 2024
+****************************************
+
+Library(s) Used:
+
+    CORE90GPSVT (File: /cell_libs/cmos090_50a/CORE90GPSVT_SNPS-AVT_2.1/SIGNOFF/bc_1.10V_m40C_wc_0.90V_105C/PT_LIB/CORE90GPSVT_NomLeak.db)
+    CORE90GPHVT (File: /cell_libs/cmos090_50a/CORE90GPHVT_SNPS-AVT_2.1.a/SIGNOFF/bc_1.10V_m40C_wc_0.90V_105C/PT_LIB/CORE90GPHVT_NomLeak.db)
+
+Number of ports:                          100
+Number of nets:                          2626
+Number of cells:                         2553
+Number of combinational cells:           2347
+Number of sequential cells:               196
+Number of macros/black boxes:              10
+Number of buf/inv:                        456
+Number of references:                     180
+
+Combinational area:              17001.823825
+Buf/Inv area:                     1265.532781
+Noncombinational area:            3667.081722
+Macro/Black Box area:              104.271998
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 20773.177546
+Total area:                 undefined
+
+Warning: Metal 8 tracks may not cover core area at the left side. (APL-027)
+Warning: Metal 8 tracks may not cover core area at the right side. (APL-027)
+Core Area:                     28506
+Aspect Ratio:                 0.9967
+Utilization Ratio:            0.7284
+
+
+The above information was reported from the logical library. The following are from the physical library:
+
+  Total moveable cell area: 20742.4
+  Total fixed cell area: 30.7
+  Total physical cell area: 20773.2
+  Core area: (10000 10000 179120 178560)
+1

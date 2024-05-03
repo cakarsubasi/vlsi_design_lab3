@@ -1,0 +1,63 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Wed May  1 09:54:14 2024
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: Inactive.
+	Parasitic source    : LPE
+	Parasitic mode      : RealRC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 25/25/25
+
+Information: Percent of Arnoldi-based delays = 24.97%
+
+  Startpoint: REGY_Z_reg_19_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: SIGNIFICAND_REGPIPE_Z_reg_92_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                  0.000      0.000
+  clock network delay (propagated)                       0.091      0.091
+  REGY_Z_reg_19_/CP (FD2QSVTX2)                          0.000      0.091 r
+  REGY_Z_reg_19_/Q (FD2QSVTX2)                           0.219 @    0.310 r
+  U2966/Z (IVHVTX6)                                      0.127 @    0.437 f
+  U1943/Z (AN2BHVTX1)                                    0.134 @    0.571 f
+  U2434/Z (AO7ABSVTX2)                                   0.152 @    0.723 f
+  U4016/Z (AO2HVTX1)                                     0.136 @    0.859 r
+  U4015/Z (MUX21NHVTX1)                                  0.129 &    0.988 r
+  U4013/Z (EO3HVTX1)                                     0.256 &    1.244 f
+  U4012/Z (IVHVTX0H)                                     0.092 &    1.336 r
+  U3953/Z (MUX21NHVTX1)                                  0.119 &    1.455 r
+  U3947/Z (EO3HVTX1)                                     0.272 &    1.728 f
+  U3945/Z (EO3SVTX1)                                     0.172 &    1.899 f
+  U3942/Z (MUX21NHVTX1)                                  0.100 &    1.999 r
+  SIGNIFICAND_REGPIPE_Z_reg_92_/D (FD2QHVTX1)            0.000 &    2.000 r
+  data arrival time                                                 2.000
+
+  clock CLK (rise edge)                                  2.000      2.000
+  clock network delay (propagated)                       0.096      2.096
+  SIGNIFICAND_REGPIPE_Z_reg_92_/CP (FD2QHVTX1)           0.000      2.096 r
+  library setup time                                    -0.088      2.008
+  data required time                                                2.008
+  --------------------------------------------------------------------------
+  data required time                                                2.008
+  data arrival time                                                -2.000
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.008
+
+
+1

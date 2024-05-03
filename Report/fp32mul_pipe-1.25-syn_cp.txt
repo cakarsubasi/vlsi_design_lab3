@@ -1,0 +1,90 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : fp32mul_pipe
+Version: G-2012.06
+Date   : Tue Apr 30 11:36:11 2024
+****************************************
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: enclosed
+
+  Startpoint: SIGNIFICAND/REGPIPE/Z_reg[57]
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: REGZ/Z_reg[21]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fp32mul_pipe       area_24Kto48K         CORE90GPSVT
+  significand_compute
+                     area_24Kto48K         CORE90GPSVT
+  gl_csa32_n47_2     area_1Kto2K           CORE90GPSVT
+  gl_cpa_n47_1       area_2Kto3K           CORE90GPSVT
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            0.000      0.000
+  SIGNIFICAND/REGPIPE/Z_reg[57]/CP (FD2QSVTX2)           0.000      0.000 r
+  SIGNIFICAND/REGPIPE/Z_reg[57]/Q (FD2QSVTX2)            0.119      0.119 f
+  SIGNIFICAND/REGPIPE/Z[57] (regnb_N96)                  0.000      0.119 f
+  SIGNIFICAND/CSA1/B[9] (gl_csa32_n47_2)                 0.000      0.119 f
+  SIGNIFICAND/CSA1/U11/Z (ENSVTX4)                       0.076      0.195 r
+  SIGNIFICAND/CSA1/U27/Z (EOSVTX1)                       0.088      0.282 r
+  SIGNIFICAND/CSA1/Z[9] (gl_csa32_n47_2)                 0.000      0.282 r
+  SIGNIFICAND/CPA1/A1[9] (gl_cpa_n47_1)                  0.000      0.282 r
+  SIGNIFICAND/CPA1/U52/Z (ND2SVTX2)                      0.039      0.321 f
+  SIGNIFICAND/CPA1/U21/Z (IVHVTX0H)                      0.072      0.393 r
+  SIGNIFICAND/CPA1/U19/Z (IVSVTX2)                       0.035      0.429 f
+  SIGNIFICAND/CPA1/U20/Z (IVSVTX4)                       0.024      0.453 r
+  SIGNIFICAND/CPA1/U32/Z (AO23SVTX6)                     0.036      0.488 f
+  SIGNIFICAND/CPA1/U26/Z (ND2SVTX6)                      0.024      0.513 r
+  SIGNIFICAND/CPA1/U106/Z (ND4ABSVTX6)                   0.023      0.536 f
+  SIGNIFICAND/CPA1/U102/Z (AO7ABSVTX6)                   0.022      0.558 r
+  SIGNIFICAND/CPA1/U93/Z (ND2SVTX8)                      0.015      0.574 f
+  SIGNIFICAND/CPA1/U92/Z (ND2SVTX6)                      0.018      0.591 r
+  SIGNIFICAND/CPA1/U110/Z (IVSVTX4)                      0.013      0.604 f
+  SIGNIFICAND/CPA1/U5/Z (AO4ABSVTX6)                     0.020      0.625 r
+  SIGNIFICAND/CPA1/U6/Z (AO2NSVTX8)                      0.057      0.682 r
+  SIGNIFICAND/CPA1/U105/Z (AO2NSVTX8)                    0.053      0.735 r
+  SIGNIFICAND/CPA1/U91/Z (AO2NSVTX8)                     0.053      0.787 r
+  SIGNIFICAND/CPA1/U135/Z (AO2NSVTX8)                    0.055      0.842 r
+  SIGNIFICAND/CPA1/U36/Z (ND2SVTX6)                      0.016      0.858 f
+  SIGNIFICAND/CPA1/U109/Z (ND2SVTX8)                     0.019      0.877 r
+  SIGNIFICAND/CPA1/U81/Z (ND3ASVTX8)                     0.021      0.899 f
+  SIGNIFICAND/CPA1/U18/Z (ND2SVTX8)                      0.024      0.923 r
+  SIGNIFICAND/CPA1/U13/Z (ND3ABSVTX8)                    0.016      0.939 f
+  SIGNIFICAND/CPA1/U1/Z (ND3SVTX4)                       0.035      0.974 r
+  SIGNIFICAND/CPA1/U89/Z (IVSVTX4)                       0.027      1.000 f
+  SIGNIFICAND/CPA1/U22/Z (NR2SVTX8)                      0.021      1.021 r
+  SIGNIFICAND/CPA1/U17/Z (AO1ASVTX6)                     0.033      1.054 f
+  SIGNIFICAND/CPA1/U94/Z (EOSVTX4)                       0.052      1.107 r
+  SIGNIFICAND/CPA1/S[44] (gl_cpa_n47_1)                  0.000      1.107 r
+  SIGNIFICAND/A_MUX/A0[21] (gl_mux21_n23)                0.000      1.107 r
+  SIGNIFICAND/A_MUX/U20/Z (MUX21SVTX1)                   0.054      1.161 r
+  SIGNIFICAND/A_MUX/Z[21] (gl_mux21_n23)                 0.000      1.161 r
+  SIGNIFICAND/Z[21] (significand_compute)                0.000      1.161 r
+  REGZ/A[21] (reg32b_0)                                  0.000      1.161 r
+  REGZ/Z_reg[21]/D (FD2QSVTX2)                           0.000      1.161 r
+  data arrival time                                                 1.161
+
+  clock CLK (rise edge)                                  1.250      1.250
+  clock network delay (ideal)                            0.000      1.250
+  REGZ/Z_reg[21]/CP (FD2QSVTX2)                          0.000      1.250 r
+  library setup time                                    -0.089      1.161
+  data required time                                                1.161
+  --------------------------------------------------------------------------
+  data required time                                                1.161
+  data arrival time                                                -1.161
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.000
+
+
+1

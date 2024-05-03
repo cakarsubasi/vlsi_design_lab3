@@ -1,0 +1,96 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Wed May  1 09:53:14 2024
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+Wire Load Model Mode: Inactive.
+	Parasitic source    : LPE
+	Parasitic mode      : RealRC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 25/25/25
+
+Information: Percent of Arnoldi-based delays = 24.97%
+
+  Startpoint: REGY_Z_reg_19_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: SIGNIFICAND_REGPIPE_Z_reg_92_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  ----------------------------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                   0.000000   0.000000
+  clock network delay (propagated)                                        0.090786   0.090786
+  REGY_Z_reg_19_/CP (FD2QSVTX2)                                 0.082052  0.000000   0.090786 r
+  REGY_Z_reg_19_/Q (FD2QSVTX2)                                  0.235193  0.219310 @ 0.310096 r
+  SIGNIFICAND_MULT_ARRAY_N9 (net)              34     0.132611            0.000000   0.310096 r
+  U2966/A (IVHVTX6)                                             0.235779  0.005536 @ 0.315632 r
+  U2966/Z (IVHVTX6)                                             0.088356  0.121462 @ 0.437094 f
+  n3947 (net)                                  26     0.089578            0.000000   0.437094 f
+  U1943/A (AN2BHVTX1)                                           0.088424  0.000517 @ 0.437611 f
+  U1943/Z (AN2BHVTX1)                                           0.057837  0.133198   0.570809 f
+  n3377 (net)                                   3     0.012873            0.000000   0.570809 f
+  U2434/A (AO7ABSVTX2)                                          0.057837  0.000191 & 0.571000 f
+  U2434/Z (AO7ABSVTX2)                                          0.170255  0.151683 @ 0.722683 f
+  n3750 (net)                                  23     0.072990            0.000000   0.722683 f
+  U4016/B (AO2HVTX1)                                            0.170359  0.003553 @ 0.726236 f
+  U4016/Z (AO2HVTX1)                                            0.109732  0.132921   0.859157 r
+  n3391 (net)                                   1     0.005193            0.000000   0.859157 r
+  U4015/S (MUX21NHVTX1)                                         0.109732  0.000091 & 0.859248 r
+  U4015/Z (MUX21NHVTX1)                                         0.130093  0.128792   0.988040 r
+  n3408 (net)                                   2     0.007814            0.000000   0.988040 r
+  U4013/B (EO3HVTX1)                                            0.130093  0.000161 & 0.988201 r
+  U4013/Z (EO3HVTX1)                                            0.053834  0.255602   1.243803 f
+  n3426 (net)                                   2     0.004356            0.000000   1.243803 f
+  U4012/A (IVHVTX0H)                                            0.053834  0.000003 & 1.243806 f
+  U4012/Z (IVHVTX0H)                                            0.112431  0.092462   1.336268 r
+  n3427 (net)                                   2     0.007782            0.000000   1.336268 r
+  U3953/S (MUX21NHVTX1)                                         0.112431  0.000108 & 1.336376 r
+  U3953/Z (MUX21NHVTX1)                                         0.108705  0.118994   1.455370 r
+  n3415 (net)                                   2     0.005907            0.000000   1.455370 r
+  U3947/A (EO3HVTX1)                                            0.108705  0.000086 & 1.455456 r
+  U3947/Z (EO3HVTX1)                                            0.058057  0.272091   1.727547 f
+  n3430 (net)                                   2     0.005712            0.000000   1.727547 f
+  U3945/B (EO3SVTX1)                                            0.058057  0.000078 & 1.727625 f
+  U3945/Z (EO3SVTX1)                                            0.063607  0.171528   1.899153 f
+  n3432 (net)                                   2     0.010836            0.000000   1.899153 f
+  U3942/S (MUX21NHVTX1)                                         0.063607  0.000182 & 1.899335 f
+  U3942/Z (MUX21NHVTX1)                                         0.109194  0.100115   1.999449 r
+  SIGNIFICAND_PC_stage[44] (net)                1     0.005962            0.000000   1.999449 r
+  SIGNIFICAND_REGPIPE_Z_reg_92_/D (FD2QHVTX1)                   0.109194  0.000102 & 1.999551 r
+  data arrival time                                                                  1.999551
+
+  clock CLK (rise edge)                                                   2.000000   2.000000
+  clock network delay (propagated)                                        0.095604   2.095604
+  SIGNIFICAND_REGPIPE_Z_reg_92_/CP (FD2QHVTX1)                            0.000000   2.095604 r
+  library setup time                                                      -0.088092  2.007512
+  data required time                                                                 2.007512
+  ----------------------------------------------------------------------------------------------------------------
+  data required time                                                                 2.007512
+  data arrival time                                                                  -1.999551
+  ----------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                        0.007961
+
+
+1

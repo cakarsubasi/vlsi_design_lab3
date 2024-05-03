@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : fp32mul_pipe
+Version: G-2012.06
+Date   : Tue Apr 30 11:43:44 2024
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    CORE90GPSVT (File: /cell_libs/cmos090_50a/CORE90GPSVT_SNPS-AVT_2.1/SIGNOFF/bc_1.10V_m40C_wc_0.90V_105C/PT_LIB/CORE90GPSVT_NomLeak.db)
+    CORE90GPHVT (File: /cell_libs/cmos090_50a/CORE90GPHVT_SNPS-AVT_2.1.a/SIGNOFF/bc_1.10V_m40C_wc_0.90V_105C/PT_LIB/CORE90GPHVT_NomLeak.db)
+
+Number of ports:                           98
+Number of nets:                          2613
+Number of cells:                         2540
+Number of combinational cells:           2344
+Number of sequential cells:               196
+Number of macros:                           0
+Number of buf/inv:                        441
+Number of references:                     161
+
+Combinational area:       18191.622261
+Noncombinational area:    3673.667316
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:          21865.289577
+Total area:                 undefined
+1

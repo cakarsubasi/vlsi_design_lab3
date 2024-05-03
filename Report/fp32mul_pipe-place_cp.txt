@@ -1,0 +1,100 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : fp32mul_pipe
+Version: R-2020.09-SP5-5
+Date   : Fri Apr 26 15:01:54 2024
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: NomLeak   Library: CORE90GPSVT
+	Parasitic source    : LPE
+	Parasitic mode      : RealRC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 25/25/25
+
+Information: Percent of Arnoldi-based delays = 21.53%
+
+  Startpoint: REGY/Z_reg_20_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: SIGNIFICAND/REGPIPE/Z_reg_33_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                  0.000      0.000
+  clock network delay (propagated)                       0.089      0.089
+  REGY/Z_reg_20_/CP (FD2QSVTX1)                          0.000      0.089 r
+  REGY/Z_reg_20_/Q (FD2QSVTX1)                           0.125      0.215 f
+  REGY/Z[20] (reg32b_1)                                  0.000      0.215 f
+  SIGNIFICAND/MY[20] (significand_compute)               0.000      0.215 f
+  SIGNIFICAND/MULT_ARRAY/Y[20] (array24x24)              0.000      0.215 f
+  SIGNIFICAND/MULT_ARRAY/PP_A/Y[1] (PARTPROD_n25_2)      0.000      0.215 f
+  SIGNIFICAND/MULT_ARRAY/PP_A/U55/Z (IVSVTX4)            0.028 &    0.242 r
+  SIGNIFICAND/MULT_ARRAY/PP_A/U27/Z (IVSVTX2)            0.023 &    0.266 f
+  SIGNIFICAND/MULT_ARRAY/PP_A/U3/Z (IVHVTX2)             0.020 &    0.285 r
+  SIGNIFICAND/MULT_ARRAY/PP_A/U2/Z (ND2SVTX2)            0.021 &    0.307 f
+  SIGNIFICAND/MULT_ARRAY/PP_A/U26/Z (ND2SVTX4)           0.028 &    0.334 r
+  SIGNIFICAND/MULT_ARRAY/PP_A/U12/Z (IVSVTX6)            0.020 &    0.354 f
+  SIGNIFICAND/MULT_ARRAY/PP_A/U18/Z (IVSVTX6)            0.031 @    0.385 r
+  SIGNIFICAND/MULT_ARRAY/PP_A/U88/Z (AO2SVTX2)           0.045 @    0.430 f
+  SIGNIFICAND/MULT_ARRAY/PP_A/U66/Z (EOSVTX4)            0.088 &    0.518 f
+  SIGNIFICAND/MULT_ARRAY/PP_A/P[11] (PARTPROD_n25_2)     0.000      0.518 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/PA[11] (TREE)           0.000      0.518 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_8B/C[31] (gl_csa42_n47_2)
+                                                         0.000      0.518 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_8B/U115/Z (EOSVTX8)
+                                                         0.049 &    0.567 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_8B/U134/Z (EN3SVTX8)
+                                                         0.064 @    0.631 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_8B/U21/Z (AO4ABSVTX4)
+                                                         0.057 @    0.688 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/A_8B/Y[32] (gl_csa42_n47_2)
+                                                         0.000      0.688 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/B_45/B[32] (gl_csa32_n47_0)
+                                                         0.000      0.688 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/B_45/U119/Z (EOSVTX8)
+                                                         0.070 &    0.758 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/B_45/U71/Z (AO2NSVTX6)
+                                                         0.064 &    0.822 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/B_45/Y[33] (gl_csa32_n47_0)
+                                                         0.000      0.822 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/D[33] (gl_csa42_n47_0)
+                                                         0.000      0.822 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/U165/Z (EN3SVTX8)
+                                                         0.110 @    0.933 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/U202/Z (IVSVTX4)
+                                                         0.014 @    0.947 r
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/U240/Z (ND2SVTX4)
+                                                         0.013 &    0.960 f
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/U215/Z (ND2SVTX4)
+                                                         0.019 &    0.979 r
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/U10/Z (ENSVTX2)    0.055 &    1.034 r
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/D_03/Z[33] (gl_csa42_n47_0)
+                                                         0.000      1.034 r
+  SIGNIFICAND/MULT_ARRAY/PP_TREE/S[33] (TREE)            0.000      1.034 r
+  SIGNIFICAND/MULT_ARRAY/S[33] (array24x24)              0.000      1.034 r
+  SIGNIFICAND/REGPIPE/A[33] (regnb_N96)                  0.000      1.034 r
+  SIGNIFICAND/REGPIPE/Z_reg_33_/D (FD2QSVTX2)            0.000 &    1.034 r
+  data arrival time                                                 1.034
+
+  clock CLK (rise edge)                                  1.000      1.000
+  clock network delay (propagated)                       0.087      1.087
+  SIGNIFICAND/REGPIPE/Z_reg_33_/CP (FD2QSVTX2)           0.000      1.087 r
+  library setup time                                    -0.051      1.036
+  data required time                                                1.036
+  --------------------------------------------------------------------------
+  data required time                                                1.036
+  data arrival time                                                -1.034
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.002
+
+
+1
