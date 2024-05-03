@@ -9,15 +9,15 @@ sh date
 # set design_netlist ./fp32mul_pipe-syn.v
 set top_module fp32mul_pipe
 # current_design ${top_module}
-
+set module_name ${top_module}-${PERIOD}
 #####################
 ##  open dft cell  ##
 #####################
 
-import_designs -format ddc -top ${top_module} -cel ${top_module} ./${top_module}-syn.ddc
+import_designs -format ddc -top ${top_module} -cel ${module_name} ./db/${module_name}-compile.ddc
 
-  copy_mw_cel -from ${top_module} -to ${top_module}-floorplan
-  open_mw_cel ${top_module}-floorplan
+  copy_mw_cel -from ${top_module} -to ${module_name}-floorplan
+  open_mw_cel ${module_name}-floorplan
   link
   link_physical
 
@@ -80,8 +80,6 @@ set_fp_rail_constraints -add_layer  -layer M5 -direction vertical -max_strap 256
 ###############
 
 synthesize_fp_rail  -nets {VSS} -power_budget 2 -voltage_supply 1.0 -use_pins_as_pads
-
-commit_fp_rail
 
 ##############
 ## PNS VDD  ##

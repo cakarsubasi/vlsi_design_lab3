@@ -25,21 +25,77 @@ sim-gui: simv-gui
 	./simv -gui
 
 synth-build:
-	dc_shell -f ./scripts/T3_synthesis.tcl
-
-synth-sim: compile synth-build
-	vlogan -full64 /cell_libs/cmos090_50a/CORE90GPSVT_SNPS-AVT_2.1/VERILOG_LD/CORE90GPSVT.v
-	vlogan -full64 /cell_libs/cmos090_50a/CORE90GPHVT_SNPS-AVT_2.1.a/VERILOG_LD/CORE90GPHVT.v
-	vlogan -full64 shiftreg-gated-syn.v 
-	vhdlan -full64 ${top_level_file}
-	vcs -full64 -debug_access+all -sdf typ:E/UUT:shiftreg-syn.sdf E +neg_tchk +sdfverbose 
-#	./simv -ucli -include saif.cmd
+	dc_shell -x "set PERIOD 1.0" -f ./scripts/T3_synthesis.tcl
 	
 synth-phys:
-	dc_shell -topo -f ./scripts/T5_compile.tcl
+	dc_shell -topo -x "set PERIOD 1.0" -f ./scripts/T5_compile.tcl
 
+# Needs source icc_env.tcsh
 floorplan:
 	icc_shell -no_gui -shared_license -f ./scripts/plan_and_place.tcl
+
+synth-power:
+	dc_shell -x "set PERIOD 1.0" -f ./scripts/T3_synthesis.tcl
+	dc_shell -x "set PERIOD 1.25" -f ./scripts/T3_synthesis.tcl
+	dc_shell -x "set PERIOD 1.5" -f ./scripts/T3_synthesis.tcl
+	dc_shell -x "set PERIOD 2.0" -f ./scripts/T3_synthesis.tcl
+
+synth-phys-power:
+	dc_shell -topo -x "set PERIOD 1.0"  -f ./scripts/T5_compile.tcl
+	dc_shell -topo -x "set PERIOD 1.25" -f ./scripts/T5_compile.tcl
+	dc_shell -topo -x "set PERIOD 1.5"  -f ./scripts/T5_compile.tcl
+	dc_shell -topo -x "set PERIOD 2.0"  -f ./scripts/T5_compile.tcl
+
+floorplan-power:
+	icc_shell -no_gui -shared_license -x "set PERIOD 1.0" -f ./scripts/plan_and_place.tcl
+	icc_shell -no_gui -shared_license -x "set PERIOD 1.25" -f ./scripts/plan_and_place.tcl
+	icc_shell -no_gui -shared_license -x "set PERIOD 1.5" -f ./scripts/plan_and_place.tcl
+	icc_shell -no_gui -shared_license -x "set PERIOD 2.0" -f ./scripts/plan_and_place.tcl
+
+post-syn-power-sim:
+	$(eval DESIGN := fp32mul_pipe-1.0-syn)
+	vlogan -full64 /cell_libs/cmos090_50a/CORE90GPSVT_SNPS-AVT_2.1/VERILOG_LD/CORE90GPSVT.v
+	vlogan -full64 /cell_libs/cmos090_50a/CORE90GPHVT_SNPS-AVT_2.1.a/VERILOG_LD/CORE90GPHVT.v
+	vlogan -full64 ./db/${DESIGN}.v 
+	vhdlan -full64 tb_fpmul1.vhd
+	vcs -full64 -debug_access+all -sdf typ:E/UUT:./db/${DESIGN}.sdf E +neg_tchk +sdfverbose 
+	mv fp32mul_pipe-place.saif ./Report/${DESIGN}.saif
+
+post-plan-power-sim:
+	$(eval DESIGN := fp32mul_pipe-1.0-place)
+	vlogan -full64 /cell_libs/cmos090_50a/CORE90GPSVT_SNPS-AVT_2.1/VERILOG_LD/CORE90GPSVT.v
+	vlogan -full64 /cell_libs/cmos090_50a/CORE90GPHVT_SNPS-AVT_2.1.a/VERILOG_LD/CORE90GPHVT.v
+	vlogan -full64 ./db/${DESIGN}.v
+	vhdlan -full64 tb_s_fpmul1.vhd
+	vcs -full64 -debug -sdf typ:E/UUT:./db/${DESIGN}.sdf E +neg_tchk +sdfverbose
+	./simv -ucli -include saif_post.cmd
+	mv fp32mul_pipe-place.saif ./Report/${DESIGN}.saif
+	$(eval DESIGN := fp32mul_pipe-1.25-place)
+	vlogan -full64 ./db/${DESIGN}.v
+	vhdlan -full64 tb_s_fpmul1.vhd
+	vcs -full64 -debug -sdf typ:E/UUT:./db/${DESIGN}.sdf E +neg_tchk +sdfverbose
+	./simv -ucli -include saif_post.cmd
+	mv fp32mul_pipe-place.saif ./Report/${DESIGN}.saif
+	$(eval DESIGN := fp32mul_pipe-1.5-place)
+	vlogan -full64 ./db/${DESIGN}.v
+	vhdlan -full64 tb_s_fpmul1.vhd
+	vcs -full64 -debug -sdf typ:E/UUT:./db/${DESIGN}.sdf E +neg_tchk +sdfverbose
+	./simv -ucli -include saif_post.cmd
+	mv fp32mul_pipe-place.saif ./Report/${DESIGN}.saif
+	$(eval DESIGN := fp32mul_pipe-2.0-place)
+	vlogan -full64 ./db/${DESIGN}.v
+	vhdlan -full64 tb_s_fpmul1.vhd
+	vcs -full64 -debug -sdf typ:E/UUT:./db/${DESIGN}.sdf E +neg_tchk +sdfverbose
+	./simv -ucli -include saif_post.cmd
+	mv fp32mul_pipe-place.saif ./Report/${DESIGN}.saif
+
+post-plan-power-generate:
+	vlogan -full64 /cell_libs/cmos090_50a/CORE90GPSVT_SNPS-AVT_2.1/VERILOG_LD/CORE90GPSVT.v
+	vlogan -full64 /cell_libs/cmos090_50a/CORE90GPHVT_SNPS-AVT_2.1.a/VERILOG_LD/CORE90GPHVT.v
+	dc_shell -x "set top_level fp32mul_pipe-1.0" -f ./scripts/post_syn_power.tcl
+	dc_shell -x "set top_level fp32mul_pipe-1.25" -f ./scripts/post_syn_power.tcl
+	dc_shell -x "set top_level fp32mul_pipe-1.5" -f ./scripts/post_syn_power.tcl
+	dc_shell -x "set top_level fp32mul_pipe-2.0" -f ./scripts/post_syn_power.tcl
 
 clean:
 	rm -rf AN.DB 64 simv* csrc work.lib++ alib-52 ARCH CONF ENTI WORK command.log default.svf filenames.log

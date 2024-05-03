@@ -23,3 +23,7 @@
 !.synopsys_dc.setup
 # Other text files
 !*.txt
+
+# Include report files
+!/Report/
+!*.rpt
