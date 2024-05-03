@@ -12,5 +12,5 @@ set rtl_files "\
 ./expadd.vhd \
 ./expincrement.vhd \
 ./expupdate.vhd \
-./significand_compute_piped.vhd \
+./significand_compute_pipe.vhd \
 ./fp32mul_pipe.vhd "
